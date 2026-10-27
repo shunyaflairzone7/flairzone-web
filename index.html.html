@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLAIR ZONE - Guided by Eternal Light of Knowledge</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darknavy: '#0F172A',
+                        royalblue: '#3B82F6',
+                        vibrantorange: '#FF7A00',
+                        slategray: '#1E293B',
+                        lighttext: '#F8FAFC',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Glassmorphism & custom utility styles */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-title {
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .watermark-overlay {
+            background-image: radial-gradient(rgba(255, 122, 0, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-darknavy text-lighttext font-sans min-h-screen flex flex-col watermark-overlay selection:bg-vibrantorange selection:text-white">
+
+    <!-- TOP HEADER WITH ALL SOCIAL LINKS -->
+    <header class="sticky top-0 z-40 bg-darknavy/90 backdrop-blur-md border-b border-slate-800 px-4 py-3 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <!-- Brand Logo & Slogan -->
+            <div class="flex items-center space-x-3 w-full md:w-auto justify-between md:justify-start">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-royalblue via-indigo-500 to-vibrantorange flex items-center justify-center shadow-lg shadow-royalblue/20">
+                        <i class="fa-solid fa-lightbulb text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-extrabold tracking-tight glow-title flex items-center gap-1">
+                            <span class="text-royalblue">FLAIR</span>
+                            <span class="text-vibrantorange">ZONE</span>
+                        </h1>
+                        <p class="text-xs text-slate-400 font-medium tracking-wide">Guided by Eternal Light of Knowledge</p>
+                    </div>
+                </div>
+
+                <!-- Mobile Social Links Bar -->
+                <div class="flex md:hidden items-center space-x-1.5">
+                    <a href="https://instagram.com/flairzone" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 text-pink-400 hover:bg-slate-700 transition" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://youtube.com/@flairzone" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 text-red-500 hover:bg-slate-700 transition" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="https://facebook.com/flairzone" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 text-blue-500 hover:bg-slate-700 transition" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://linkedin.com/company/flairzone" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800 text-sky-400 hover:bg-slate-700 transition" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="relative w-full md:w-80">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                    <i class="fa-solid fa-magnifying-glass text-sm"></i>
+                </div>
+                <input type="text" id="searchInput" oninput="filterResources()" placeholder="Search NCERT chapters, reels, topics..." 
+                    class="w-full pl-10 pr-4 py-2 bg-slate-800/80 border border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-royalblue focus:border-transparent transition placeholder-slate-500">
+            </div>
+
+            <!-- Desktop Social Icons & Action Bar -->
+            <div class="hidden md:flex items-center space-x-2">
+                <a href="https://instagram.com/flairzone" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-800/80 border border-slate-700 text-pink-400 hover:bg-slate-700 transition hover:scale-105" title="Follow on Instagram">
+                    <i class="fa-brands fa-instagram text-lg"></i>
+                </a>
+                <a href="https://youtube.com/@flairzone" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-800/80 border border-slate-700 text-red-500 hover:bg-slate-700 transition hover:scale-105" title="Subscribe on YouTube">
+                    <i class="fa-brands fa-youtube text-lg"></i>
+                </a>
+                <a href="https://facebook.com/flairzone" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-800/80 border border-slate-700 text-blue-500 hover:bg-slate-700 transition hover:scale-105" title="Follow on Facebook">
+                    <i class="fa-brands fa-facebook-f text-lg"></i>
+                </a>
+                <a href="https://linkedin.com/company/flairzone" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-slate-800/80 border border-slate-700 text-sky-400 hover:bg-slate-700 transition hover:scale-105" title="Connect on LinkedIn">
+                    <i class="fa-brands fa-linkedin-in text-lg"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO / ANNOUNCEMENT BANNER -->
+    <section class="bg-gradient-to-r from-royalblue/10 via-slate-900 to-vibrantorange/10 border-b border-slate-800/60 py-6 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="space-y-1 text-center sm:text-left">
+                <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-vibrantorange/10 border border-vibrantorange/30 text-vibrantorange text-xs font-semibold">
+                    <i class="fa-solid fa-clock-rotate-left"></i> Launching Content Step-by-Step
+                </div>
+                <h2 class="text-xl font-bold">Class 9 New Curriculum: <span class="text-royalblue">Ganita Manjari</span> Portal</h2>
+                <p class="text-xs text-slate-400">High-yield formula sheets, chapter tests, PYQs, and concept Reels currently in production!</p>
+            </div>
+            <div class="flex items-center space-x-2">
+                <a href="https://instagram.com/flairzone" target="_blank" rel="noopener noreferrer" class="px-4 py-2 bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold text-xs rounded-xl shadow-lg hover:opacity-90 transition flex items-center gap-2">
+                    <i class="fa-brands fa-instagram"></i> Join @flairzone
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLASS SELECTION NAVIGATION BAR -->
+    <nav class="bg-slate-900/60 border-b border-slate-800 py-3 px-4 sticky top-[65px] z-30 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3">
+            <!-- Class Selector Pills -->
+            <div class="flex items-center space-x-2 overflow-x-auto no-scrollbar pb-1 md:pb-0">
+                <button onclick="selectClass('class9')" id="btn-class9" class="class-pill px-4 py-1.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all duration-200 bg-royalblue text-white shadow-md shadow-royalblue/30 flex items-center gap-1.5">
+                    Class 9th <span class="bg-vibrantorange text-white text-[10px] px-1.5 py-0.5 rounded-md uppercase font-bold tracking-wider">Ganita Manjari</span>
+                </button>
+                <button onclick="selectClass('class10')" id="btn-class10" class="class-pill px-4 py-1.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all duration-200 bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700">
+                    Class 10th
+                </button>
+                <button onclick="selectClass('class11')" id="btn-class11" class="class-pill px-4 py-1.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all duration-200 bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700">
+                    Class 11th
+                </button>
+                <button onclick="selectClass('class12')" id="btn-class12" class="class-pill px-4 py-1.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all duration-200 bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700">
+                    Class 12th
+                </button>
+            </div>
+
+            <!-- Subject Filter & Social Quick Follow -->
+            <div class="flex items-center space-x-3 self-start md:self-auto">
+                <span class="bg-slate-800 text-royalblue border border-royalblue/30 px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5">
+                    <i class="fa-solid fa-calculator"></i> CBSE Mathematics
+                </span>
+                <span class="text-xs text-slate-400 hidden sm:inline">Follow updates:</span>
+                <a href="https://youtube.com/@flairzone" target="_blank" rel="noopener noreferrer" class="text-red-500 hover:text-red-400 text-xs font-medium flex items-center gap-1">
+                    <i class="fa-brands fa-youtube"></i> YouTube
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-8 space-y-8">
+
+        <!-- Active Class Title -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 border-b border-slate-800 pb-4">
+            <div>
+                <h3 id="classDisplayTitle" class="text-2xl font-bold text-white flex items-center gap-2">
+                    Class 9 Mathematics Resources
+                </h3>
+                <p id="classDisplaySubtitle" class="text-xs text-slate-400 mt-0.5">Structured roadmap for NCERT Ganita Manjari chapters & upcoming concept Reels.</p>
+            </div>
+            <div class="text-xs text-vibrantorange bg-vibrantorange/10 px-3 py-1.5 rounded-lg border border-vibrantorange/30 self-start md:self-auto font-medium flex items-center gap-1.5">
+                <i class="fa-solid fa-spinner animate-spin"></i> Materials Currently In Production
+            </div>
+        </div>
+
+        <!-- CHAPTERS GRID CONTAINER -->
+        <div id="chaptersGrid" class="space-y-8">
+            <!-- Dynamic JavaScript content will populate here -->
+        </div>
+
+        <!-- EMPTY STATE (NO SEARCH RESULTS) -->
+        <div id="noResults" class="hidden text-center py-16 space-y-3">
+            <div class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mx-auto text-slate-500 text-2xl">
+                <i class="fa-solid fa-folder-open"></i>
+            </div>
+            <h4 class="text-lg font-bold text-slate-300">No Matching Chapters Found</h4>
+            <p class="text-xs text-slate-500 max-w-sm mx-auto">Try searching for terms like "Number Systems", "Rationalization", "Polynomials", or "Identities".</p>
+        </div>
+
+    </main>
+
+    <!-- FOOTER WITH EXTENDED SOCIAL NETWORK LINKS -->
+    <footer class="bg-slate-900 border-t border-slate-800 mt-12 py-10 px-4">
+        <div class="max-w-7xl mx-auto space-y-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 border-b border-slate-800 pb-8">
+                <!-- Branding & Slogan -->
+                <div class="space-y-2 text-center md:text-left">
+                    <h3 class="text-xl font-extrabold text-white flex items-center justify-center md:justify-start gap-1">
+                        <span class="text-royalblue">FLAIR</span>
+                        <span class="text-vibrantorange">ZONE</span>
+                    </h3>
+                    <p class="text-xs text-vibrantorange font-medium">"Guided by Eternal Light of Knowledge"</p>
+                    <p class="text-[11px] text-slate-400 max-w-md">High-quality educational portal for CBSE Class 9th to 12th Maths & Science. Formula sheets, chapter tests, PYQs, and conceptual Reels.</p>
+                </div>
+
+                <!-- Connect Social Grid -->
+                <div class="space-y-2 text-center md:text-right">
+                    <p class="text-xs font-bold text-slate-300">Connect With FLAIR ZONE:</p>
+                    <div class="flex items-center space-x-3 justify-center md:justify-end">
+                        <a href="https://instagram.com/flairzone" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 text-pink-400 flex items-center justify-center hover:bg-pink-500 hover:text-white transition">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                        <a href="https://youtube.com/@flairzone" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 text-red-500 flex items-center justify-center hover:bg-red-600 hover:text-white transition">
+                            <i class="fa-brands fa-youtube text-lg"></i>
+                        </a>
+                        <a href="https://facebook.com/flairzone" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 text-blue-500 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                            <i class="fa-brands fa-facebook-f text-base"></i>
+                        </a>
+                        <a href="https://linkedin.com/company/flairzone" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-800 border border-slate-700 text-sky-400 flex items-center justify-center hover:bg-sky-500 hover:text-white transition">
+                            <i class="fa-brands fa-linkedin-in text-base"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright & Compliance Bar -->
+            <div class="flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+                <p>&copy; 2026 FLAIR ZONE. Curated and Enhanced by Flair Zone.</p>
+                <div class="flex items-center space-x-4 text-[11px]">
+                    <span class="text-slate-400"><i class="fa-solid fa-shield text-emerald-400 mr-1"></i> Official Portal</span>
+                    <span class="text-slate-400"><i class="fa-solid fa-book-open text-royalblue mr-1"></i> NCERT Aligned</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- COMING SOON / IN PRODUCTION NOTIFY MODAL -->
+    <div id="comingSoonModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-md w-full overflow-hidden shadow-2xl relative p-6 space-y-4 text-center">
+            <button onclick="closeComingSoonModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-sm">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="w-16 h-16 rounded-2xl bg-vibrantorange/10 border border-vibrantorange/30 text-vibrantorange flex items-center justify-center mx-auto text-2xl">
+                <i class="fa-solid fa-hammer animate-pulse"></i>
+            </div>
+
+            <div>
+                <h3 id="comingSoonTitle" class="text-lg font-bold text-white">Resource In Production</h3>
+                <p id="comingSoonDesc" class="text-xs text-slate-400 mt-1 leading-relaxed">We are preparing print-ready LaTeX formula sheets, chapter practice tests, and PYQs for this chapter under the official FLAIR ZONE guidelines.</p>
+            </div>
+
+            <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 text-xs text-slate-300 text-left space-y-1.5">
+                <div class="flex items-center gap-2 text-emerald-400 font-semibold">
+                    <i class="fa-solid fa-circle-check"></i> 100% Mathematical Accuracy Guarantee
+                </div>
+                <div class="flex items-center gap-2 text-royalblue font-semibold">
+                    <i class="fa-solid fa-circle-check"></i> Center Watermark (10% Opacity) PDF Format
+                </div>
+            </div>
+
+            <!-- Social Media Subscribe Call to Action -->
+            <div class="space-y-2 pt-2">
+                <p class="text-xs font-semibold text-slate-300">Get notified immediately upon release:</p>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="https://instagram.com/flairzone" target="_blank" rel="noopener noreferrer" class="py-2 px-3 bg-gradient-to-r from-pink-600 to-purple-600 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5">
+                        <i class="fa-brands fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://youtube.com/@flairzone" target="_blank" rel="noopener noreferrer" class="py-2 px-3 bg-red-600 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-1.5">
+                        <i class="fa-brands fa-youtube"></i> YouTube
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REEL / SHORTS CONCEPT PLAYER MODAL (9:16 FORMAT) -->
+    <div id="videoModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-sm w-full overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]">
+            <!-- Modal Header -->
+            <div class="p-3 bg-slate-800 border-b border-slate-700 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span>
+                    <span id="videoTitle" class="text-xs font-bold text-white truncate max-w-[220px]">Concept Reel</span>
+                </div>
+                <button onclick="closeVideoModal()" class="w-7 h-7 bg-slate-700 text-slate-300 hover:text-white rounded-full flex items-center justify-center text-xs transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- 9:16 Video Player Container -->
+            <div class="relative bg-slate-950 aspect-[9/16] w-full flex items-center justify-center overflow-hidden">
+                <div id="videoContainer" class="w-full h-full flex flex-col items-center justify-center p-6 text-center space-y-4 relative">
+                    <div class="w-16 h-16 rounded-full bg-vibrantorange/20 text-vibrantorange flex items-center justify-center border border-vibrantorange/40 text-2xl shadow-lg shadow-vibrantorange/20">
+                        <i class="fa-solid fa-play ml-1"></i>
+                    </div>
+                    <div>
+                        <span id="reelTagBadge" class="text-[10px] font-bold text-royalblue bg-royalblue/10 border border-royalblue/30 px-2 py-0.5 rounded-md">#GanitaManjari</span>
+                        <p id="videoTopicText" class="text-sm font-semibold text-white mt-2">Concept Reel Title</p>
+                        <p id="videoTakeawayText" class="text-xs text-slate-400 mt-1">Key conceptual takeaway explanation preview.</p>
+                    </div>
+
+                    <!-- Flair Zone Corner Stamp Overlay -->
+                    <div class="absolute top-4 right-4 bg-darknavy/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-700 opacity-70 text-[10px] text-white font-bold tracking-wider pointer-events-none">
+                        FLAIR ZONE
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Action Bar -->
+            <div class="p-3 bg-slate-800 border-t border-slate-700 flex items-center justify-between text-xs">
+                <span class="text-slate-400"><i class="fa-brands fa-instagram text-pink-400 mr-1"></i> @flairzone</span>
+                <a id="videoDirectLink" href="https://instagram.com/flairzone" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-royalblue text-white font-semibold rounded-lg hover:bg-blue-600 transition flex items-center gap-1">
+                    Watch Reel <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING DOUBTS AI BOT WIDGET -->
+    <div class="fixed bottom-5 right-5 z-40">
+        <button onclick="toggleDoubtBot()" id="botToggleBtn" class="w-14 h-14 rounded-full bg-gradient-to-tr from-royalblue to-vibrantorange text-white flex items-center justify-center shadow-xl shadow-royalblue/30 hover:scale-105 transition-all duration-200">
+            <i class="fa-solid fa-robot text-xl"></i>
+        </button>
+
+        <!-- Chat Drawer -->
+        <div id="doubtBotDrawer" class="hidden absolute bottom-16 right-0 w-80 sm:w-96 bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[450px]">
+            <div class="p-3.5 bg-slate-800 border-b border-slate-700 flex items-center justify-between">
+                <div class="flex items-center space-x-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-royalblue/20 text-royalblue flex items-center justify-center border border-royalblue/40 text-sm">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold text-white">FLAIR ZONE AI Assistant</h4>
+                        <p class="text-[10px] text-emerald-400 flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Ready • Grounded on NCERT
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleDoubtBot()" class="text-slate-400 hover:text-white text-xs">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Chat History -->
+            <div id="chatHistory" class="flex-grow p-4 overflow-y-auto space-y-3 text-xs">
+                <div class="bg-slate-800 p-3 rounded-xl border border-slate-700/60 max-w-[85%] space-y-1">
+                    <p class="font-semibold text-royalblue text-[11px]">FLAIR ZONE Assistant</p>
+                    <p class="text-slate-200">Welcome! Ask me any question about Class 9 Ganita Manjari or Class 10–12 Maths concepts.</p>
+                </div>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="p-3 bg-slate-800 border-t border-slate-700 flex items-center space-x-2">
+                <input type="text" id="doubtInput" onkeypress="handleDoubtKey(event)" placeholder="Ask a question (e.g., What is rationalization?)..." 
+                    class="flex-grow bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:ring-1 focus:ring-royalblue placeholder-slate-500">
+                <button onclick="sendDoubtQuery()" class="w-8 h-8 bg-royalblue text-white rounded-xl flex items-center justify-center text-xs hover:bg-blue-600 transition">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- APPLICATION DATA ENGINE -->
+    <script>
+        const contentData = {
+            class9: {
+                title: "Class 9 Mathematics (NCERT Ganita Manjari)",
+                subtitle: "Updated CBSE Syllabus | Chapter Roadmaps & Multiple Concept Reels",
+                chapters: [
+                    {
+                        id: "c9_ch1",
+                        number: "Chapter 1",
+                        title: "The World of Numbers / Number Systems",
+                        badge: "Ganita Manjari",
+                        description: "Classification of real numbers, decimal expansion rules, square root radical identities, rationalization, and laws of exponents.",
+                        status: "In Production",
+                        reels: [
+                            {
+                                id: "c9_ch1_r1",
+                                title: "The Rationalization Sign Trap",
+                                takeaway: "Why (√7 - √6) needs (√7 + √6) as its rationalizing factor.",
+                                tag: "#Rationalization",
+                                link: "https://instagram.com/flairzone"
+                            },
+                            {
+                                id: "c9_ch1_r2",
+                                title: "Terminating Decimal Expansion Shortcut",
+                                takeaway: "Check if prime factors of denominator q are only 2^n * 5^m.",
+                                tag: "#DecimalRules",
+                                link: "https://instagram.com/flairzone"
+                            },
+                            {
+                                id: "c9_ch1_r3",
+                                title: "Laws of Exponents in 30 Seconds",
+                                takeaway: "Quick review of a^m * a^n = a^(m+n) and zero exponent rule.",
+                                tag: "#Exponents",
+                                link: "https://youtube.com/@flairzone"
+                            }
+                        ]
+                    },
+                    {
+                        id: "c9_ch2",
+                        number: "Chapter 2",
+                        title: "Introduction to Linear Polynomials",
+                        badge: "Ganita Manjari",
+                        description: "Degrees of polynomials, zeroes of linear polynomials p(x) = ax + b, linear growth models, and line graphs.",
+                        status: "In Production",
+                        reels: [
+                            {
+                                id: "c9_ch2_r1",
+                                title: "Finding Zero of p(x) = ax + b",
+                                takeaway: "Set p(x) = 0 to get x = -b/a instantly.",
+                                tag: "#LinearZeroes",
+                                link: "https://instagram.com/flairzone"
+                            },
+                            {
+                                id: "c9_ch2_r2",
+                                title: "Degree of Constant Polynomial",
+                                takeaway: "Why a non-zero constant polynomial always has degree 0.",
+                                tag: "#DegreeRules",
+                                link: "https://youtube.com/@flairzone"
+                            }
+                        ]
+                    },
+                    {
+                        id: "c9_ch3",
+                        number: "Chapter 3",
+                        title: "Orienting Yourself: The Use of Coordinates",
+                        badge: "Ganita Manjari",
+                        description: "Cartesian plane, abscissa and ordinate, quadrant identification, and plotting points on coordinate axes.",
+                        status: "In Production",
+                        reels: [
+                            {
+                                id: "c9_ch3_r1",
+                                title: "Quadrant Sign Trick (+,-)",
+                                takeaway: "Instant visual memory shortcut for Q-I, Q-II, Q-III, and Q-IV.",
+                                tag: "#CoordinateGeometry",
+                                link: "https://instagram.com/flairzone"
+                            }
+                        ]
+                    },
+                    {
+                        id: "c9_ch4",
+                        number: "Chapter 4",
+                        title: "Exploring Algebraic Identities",
+                        badge: "Ganita Manjari",
+                        description: "Standard algebraic identities (a+b)², (a-b)², (a+b+c)², factorisation of polynomials, and middle-term splitting.",
+                        status: "In Production",
+                        reels: [
+                            {
+                                id: "c9_ch4_r1",
+                                title: "Middle Term Splitting Trick",
+                                takeaway: "How to find two numbers whose product is ac and sum is b.",
+                                tag: "#Factorisation",
+                                link: "https://instagram.com/flairzone"
+                            }
+                        ]
+                    }
+                ]
+            },
+            class10: {
+                title: "Class 10 Mathematics (CBSE NCERT)",
+                subtitle: "Board Exam Preparation Roadmap | Class 10 Maths",
+                chapters: [
+                    {
+                        id: "c10_ch1",
+                        number: "Chapter 1",
+                        title: "Real Numbers",
+                        badge: "NCERT Board",
+                        description: "Fundamental Theorem of Arithmetic, proving irrationality of √2, √3, √5, and prime factorisation.",
+                        status: "In Production",
+                        reels: [
+                            {
+                                id: "c10_ch1_r1",
+                                title: "Prove √5 is Irrational in 45s",
+                                takeaway: "Step-by-step contradiction method outline.",
+                                tag: "#RealNumbers",
+                                link: "https://instagram.com/flairzone"
+                            }
+                        ]
+                    },
+                    {
+                        id: "c10_ch2",
+                        number: "Chapter 2",
+                        title: "Polynomials",
+                        badge: "NCERT Board",
+                        description: "Relationship between zeroes and coefficients of quadratic polynomials α + β = -b/a and αβ = c/a.",
+                        status: "In Production",
+                        reels: [
+                            {
+                                id: "c10_ch2_r1",
+                                title: "Alpha Beta Formulas Shortcut",
+                                takeaway: "Remembering quadratic polynomial sum & product of zeroes.",
+                                tag: "#Polynomials",
+                                link: "https://youtube.com/@flairzone"
+                            }
+                        ]
+                    }
+                ]
+            },
+            class11: {
+                title: "Class 11 Mathematics (CBSE NCERT)",
+                subtitle: "Foundation for Class 12 & Competitive Exams",
+                chapters: [
+                    {
+                        id: "c11_ch1",
+                        number: "Chapter 1",
+                        title: "Sets & Functions",
+                        badge: "CBSE / JEE",
+                        description: "Roster form, set builder form, subsets, power sets, Venn diagrams, and trigonometric functions.",
+                        status: "In Production",
+                        reels: [
+                            {
+                                id: "c11_ch1_r1",
+                                title: "Power Set Formulas Explained",
+                                takeaway: "Number of subsets formula 2^n visual explanation.",
+                                tag: "#SetsTheory",
+                                link: "https://linkedin.com/company/flairzone"
+                            }
+                        ]
+                    }
+                ]
+            },
+            class12: {
+                title: "Class 12 Mathematics (CBSE Board)",
+                subtitle: "Calculus, Matrices, Vectors & 3D Geometry",
+                chapters: [
+                    {
+                        id: "c12_ch1",
+                        number: "Chapter 1",
+                        title: "Matrices & Determinants",
+                        badge: "CBSE Board Special",
+                        description: "Matrix operations, inverse of matrix using adjoint, and solving linear equations via matrix method.",
+                        status: "In Production",
+                        reels: [
+                            {
+                                id: "c12_ch1_r1",
+                                title: "2x2 Matrix Inverse Shortcut",
+                                takeaway: "Swap main diagonal, change signs of off diagonal.",
+                                tag: "#Matrices",
+                                link: "https://youtube.com/@flairzone"
+                            }
+                        ]
+                    }
+                ]
+            }
+        };
+
+        let currentSelectedClass = 'class9';
+
+        window.onload = function() {
+            renderChapters(currentSelectedClass);
+        };
+
+        function renderChapters(classKey) {
+            const grid = document.getElementById('chaptersGrid');
+            const data = contentData[classKey];
+
+            document.getElementById('classDisplayTitle').innerHTML = `${data.title}`;
+            document.getElementById('classDisplaySubtitle').innerHTML = data.subtitle;
+
+            if (!data || !data.chapters || data.chapters.length === 0) {
+                grid.innerHTML = '';
+                document.getElementById('noResults').classList.remove('hidden');
+                return;
+            }
+
+            document.getElementById('noResults').classList.add('hidden');
+
+            let html = '';
+            data.chapters.forEach(ch => {
+                let reelsHtml = '';
+                if (ch.reels && ch.reels.length > 0) {
+                    ch.reels.forEach(r => {
+                        reelsHtml += `
+                            <div class="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/70 hover:border-royalblue/40 transition space-y-2 flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between gap-1 mb-1">
+                                        <span class="text-[10px] font-bold text-royalblue bg-royalblue/10 px-2 py-0.5 rounded border border-royalblue/20">${r.tag}</span>
+                                        <i class="fa-brands fa-instagram text-pink-400 text-xs"></i>
+                                    </div>
+                                    <p class="text-xs font-bold text-white">${r.title}</p>
+                                    <p class="text-[11px] text-slate-400 mt-1 leading-snug">${r.takeaway}</p>
+                                </div>
+                                <button onclick="openVideoModal('${r.title}', '${r.takeaway}', '${r.tag}', '${r.link}')" class="mt-2 w-full py-1.5 bg-royalblue/20 hover:bg-royalblue/30 text-royalblue border border-royalblue/30 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                                    <i class="fa-solid fa-play text-[10px] text-vibrantorange"></i> Watch Concept Reel
+                                </button>
+                            </div>
+                        `;
+                    });
+                }
+
+                html += `
+                <div class="glass-card rounded-2xl p-6 border border-slate-700/70 space-y-5 shadow-xl">
+                    <!-- Chapter Header -->
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-700/50 pb-4">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-extrabold text-royalblue bg-royalblue/10 px-2.5 py-1 rounded-lg border border-royalblue/20">
+                                    ${ch.number}
+                                </span>
+                                <span class="text-[10px] font-bold text-vibrantorange bg-vibrantorange/10 px-2 py-0.5 rounded-md border border-vibrantorange/30">
+                                    ${ch.badge}
+                                </span>
+                            </div>
+                            <h4 class="text-xl font-bold text-white">${ch.title}</h4>
+                            <p class="text-xs text-slate-400 max-w-2xl">${ch.description}</p>
+                        </div>
+
+                        <!-- Status Badge -->
+                        <span class="text-xs font-medium text-amber-400 bg-amber-400/10 px-3 py-1.5 rounded-xl border border-amber-400/20 self-start sm:self-auto flex items-center gap-1.5">
+                            <i class="fa-solid fa-hourglass-half"></i> ${ch.status}
+                        </span>
+                    </div>
+
+                    <!-- PDF & Assessment Resource Cards Grid (Coming Soon Trigger) -->
+                    <div class="space-y-2">
+                        <p class="text-xs font-semibold text-slate-300">Chapter Materials & Downloads:</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2.5">
+                            <button onclick="openComingSoonModal('${ch.title} — Formula Sheet')" class="p-3 bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 rounded-xl text-xs text-left transition space-y-1">
+                                <div class="text-vibrantorange font-bold flex items-center gap-1">
+                                    <i class="fa-solid fa-file-pdf"></i> Formula Sheet
+                                </div>
+                                <p class="text-[10px] text-slate-400">LaTeX PDF • In Production</p>
+                            </button>
+
+                            <button onclick="openComingSoonModal('${ch.title} — Chapter Test')" class="p-3 bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 rounded-xl text-xs text-left transition space-y-1">
+                                <div class="text-royalblue font-bold flex items-center gap-1">
+                                    <i class="fa-solid fa-pen-to-square"></i> Chapter Test
+                                </div>
+                                <p class="text-[10px] text-slate-400">Practice Set & Solutions</p>
+                            </button>
+
+                            <button onclick="openComingSoonModal('${ch.title} — CBSE PYQs')" class="p-3 bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 rounded-xl text-xs text-left transition space-y-1">
+                                <div class="text-emerald-400 font-bold flex items-center gap-1">
+                                    <i class="fa-solid fa-circle-question"></i> CBSE PYQs
+                                </div>
+                                <p class="text-[10px] text-slate-400">Past Paper Marking Scheme</p>
+                            </button>
+
+                            <button onclick="openComingSoonModal('${ch.title} — Handwritten Notes')" class="p-3 bg-slate-800/90 hover:bg-slate-700/90 border border-slate-700 rounded-xl text-xs text-left transition space-y-1">
+                                <div class="text-purple-400 font-bold flex items-center gap-1">
+                                    <i class="fa-solid fa-note-sticky"></i> Notes Draft
+                                </div>
+                                <p class="text-[10px] text-slate-400">Printable Watermarked PDF</p>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Chapter Concept Reels Grid -->
+                    <div class="space-y-2 pt-2">
+                        <p class="text-xs font-semibold text-slate-300 flex items-center justify-between">
+                            <span><i class="fa-solid fa-film text-pink-400 mr-1"></i> Chapter Concept Reels:</span>
+                            <span class="text-[11px] text-slate-400 font-normal">Available on @flairzone</span>
+                        </p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+                            ${reelsHtml}
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+
+            grid.innerHTML = html;
+        }
+
+        function selectClass(classKey) {
+            currentSelectedClass = classKey;
+            
+            document.querySelectorAll('.class-pill').forEach(btn => {
+                btn.className = "class-pill px-4 py-1.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all duration-200 bg-slate-800 text-slate-400 hover:bg-slate-700 border border-slate-700";
+            });
+
+            const activeBtn = document.getElementById(`btn-${classKey}`);
+            if (activeBtn) {
+                activeBtn.className = "class-pill px-4 py-1.5 rounded-xl font-semibold text-xs whitespace-nowrap transition-all duration-200 bg-royalblue text-white shadow-md shadow-royalblue/30 flex items-center gap-1.5";
+            }
+
+            renderChapters(classKey);
+        }
+
+        function filterResources() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const data = contentData[currentSelectedClass];
+            const grid = document.getElementById('chaptersGrid');
+
+            if (!query) {
+                renderChapters(currentSelectedClass);
+                return;
+            }
+
+            const filtered = data.chapters.filter(ch => 
+                ch.title.toLowerCase().includes(query) || 
+                ch.description.toLowerCase().includes(query) ||
+                ch.number.toLowerCase().includes(query)
+            );
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                document.getElementById('noResults').classList.remove('hidden');
+            } else {
+                document.getElementById('noResults').classList.add('hidden');
+                // Temporary render filtered view
+                renderChapters(currentSelectedClass);
+            }
+        }
+
+        // COMING SOON MODAL HANDLERS
+        function openComingSoonModal(resourceName) {
+            document.getElementById('comingSoonTitle').innerText = `${resourceName}`;
+            document.getElementById('comingSoonModal').classList.remove('hidden');
+        }
+
+        function closeComingSoonModal() {
+            document.getElementById('comingSoonModal').classList.add('hidden');
+        }
+
+        // REEL CONCEPT MODAL HANDLERS
+        function openVideoModal(title, takeaway, tag, link) {
+            document.getElementById('videoTitle').innerText = title;
+            document.getElementById('videoTopicText').innerText = title;
+            document.getElementById('videoTakeawayText').innerText = takeaway;
+            document.getElementById('reelTagBadge').innerText = tag;
+            document.getElementById('videoDirectLink').href = link;
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.add('hidden');
+        }
+
+        // DOUBT AI BOT HANDLERS
+        function toggleDoubtBot() {
+            const drawer = document.getElementById('doubtBotDrawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function handleDoubtKey(event) {
+            if (event.key === 'Enter') {
+                sendDoubtQuery();
+            }
+        }
+
+        function sendDoubtQuery() {
+            const input = document.getElementById('doubtInput');
+            const query = input.value.trim();
+            if (!query) return;
+
+            const chatHistory = document.getElementById('chatHistory');
+
+            const userMsg = document.createElement('div');
+            userMsg.className = "bg-royalblue/20 text-white p-3 rounded-xl border border-royalblue/30 max-w-[85%] ml-auto text-xs";
+            userMsg.innerText = query;
+            chatHistory.appendChild(userMsg);
+
+            input.value = '';
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = "bg-slate-800 p-3 rounded-xl border border-slate-700/60 max-w-[85%] space-y-1 text-xs text-slate-200";
+                
+                let responseText = "According to Class 9 NCERT Ganita Manjari, rationalization involves multiplying the numerator and denominator by the conjugate of the denominator to eliminate radicals.";
+                if (query.toLowerCase().includes('zero')) {
+                    responseText = "To find the zero of a linear polynomial p(x) = ax + b, set p(x) = 0. Therefore, x = -b/a.";
+                } else if (query.toLowerCase().includes('exponent')) {
+                    responseText = "Laws of Exponents: a^m × a^n = a^(m+n), and (a^m)^n = a^(mn).";
+                }
+
+                botMsg.innerHTML = `
+                    <p class="font-semibold text-royalblue text-[11px]">FLAIR ZONE Assistant</p>
+                    <p>${responseText}</p>
+                `;
+                chatHistory.appendChild(botMsg);
+                chatHistory.scrollTop = chatHistory.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
