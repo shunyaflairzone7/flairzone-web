@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FLAIR ZONE | Guided by Eternal Light of Knowledge</title>
+    <title>FLAIR ZONE | CBSE Mathematics Hub (Class 9th to 12th)</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -47,7 +47,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        /* 9:16 Video Container Ratio */
         .aspect-reel {
             aspect-ratio: 9 / 16;
         }
@@ -57,18 +56,18 @@
 
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="bg-gradient-to-r from-flair-blue to-flair-orange text-white text-xs md:text-sm font-medium py-1.5 px-4 text-center shadow-inner flex items-center justify-center gap-2">
-        <span class="bg-white/20 text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">New Update</span>
-        <span>NCERT Class 9 <strong>Ganita Manjari</strong> & Class 10–12 Maths Resources Rolling Out!</span>
+        <span class="bg-white/20 text-white text-[10px] font-bold uppercase px-2 py-0.5 rounded-full">NCERT Verified</span>
+        <span>Class 9 <strong>Ganita Manjari</strong> & Class 10–12 CBSE Mathematics Hub Live!</span>
     </div>
 
-    <!-- MAIN STICKY NAVIGATION -->
+    <!-- MAIN NAVIGATION -->
     <header class="sticky top-0 z-40 w-full glass-panel border-b border-slate-800/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
             
             <!-- BRAND LOGO & MOTTO -->
             <a href="#" class="flex items-center gap-3 group">
                 <div class="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center shadow-lg shadow-blue-500/10 group-hover:scale-105 transition-transform">
-                    <img src="FLAIR ZONE_2.png" alt="FLAIR ZONE Logo" class="w-full h-full object-contain" onError="this.onerror=null;this.src='FLAIR ZONE.png';">
+                    <img src="FLAIR ZONE_2.png" alt="FLAIR ZONE Logo" class="w-full h-full object-contain" onError="this.onerror=null;this.src='flairzone-logo.png';">
                 </div>
                 <div>
                     <div class="font-heading font-extrabold text-2xl tracking-tight text-white flex items-center gap-1">
@@ -80,18 +79,19 @@
                 </div>
             </a>
 
-            <!-- DESKTOP ACADEMIC NAV & SOCIAL HANDLES -->
+            <!-- DESKTOP NAV & SOCIAL LINKS -->
             <div class="hidden md:flex items-center gap-6">
                 <nav class="flex items-center gap-5 text-sm font-semibold text-slate-300">
-                    <a href="#resources" class="hover:text-flair-blue transition-colors">Curriculum</a>
-                    <a href="#reels-section" class="hover:text-flair-blue transition-colors">Video Reels</a>
+                    <a href="#resources" onclick="switchView('chapters')" class="hover:text-flair-blue transition-colors">Chapter Resources</a>
+                    <a href="#resources" onclick="switchView('syllabus')" class="hover:text-flair-orange transition-colors">Syllabus & Exam Pattern</a>
+                    <a href="#reels-section" class="hover:text-flair-blue transition-colors">Concept Reels</a>
                     <a href="#about" class="hover:text-flair-blue transition-colors">About Us</a>
                 </nav>
 
                 <div class="h-5 w-[1px] bg-slate-800"></div>
 
-                <!-- OFFICIAL SOCIAL LINKS -->
-                <div class="flex items-center gap-2.5">
+                <!-- SOCIAL HANDLES -->
+                <div class="flex items-center gap-2">
                     <a href="https://www.youtube.com/@FLAIRZONE-k6g" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-red-600 text-slate-300 hover:text-white flex items-center justify-center transition-all shadow-sm" title="YouTube Channel">
                         <i class="fab fa-youtube text-base"></i>
                     </a>
@@ -118,9 +118,10 @@
 
         <!-- MOBILE DROPDOWN MENU -->
         <div id="mobile-menu" class="hidden md:hidden bg-flair-darkCard border-b border-slate-800 px-4 py-4 space-y-3">
-            <a href="#resources" class="block text-sm font-semibold text-slate-200 hover:text-flair-blue">Curriculum Resources</a>
-            <a href="#reels-section" class="block text-sm font-semibold text-slate-200 hover:text-flair-blue">Video Reels</a>
-            <a href="#about" class="block text-sm font-semibold text-slate-200 hover:text-flair-blue">About FLAIR ZONE</a>
+            <a href="#resources" onclick="switchView('chapters'); toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-flair-blue">Chapter Resources</a>
+            <a href="#resources" onclick="switchView('syllabus'); toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-flair-orange">CBSE Syllabus & Pattern</a>
+            <a href="#reels-section" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-flair-blue">Concept Video Reels</a>
+            <a href="#about" onclick="toggleMobileMenu()" class="block text-sm font-semibold text-slate-200 hover:text-flair-blue">About FLAIR ZONE</a>
             <div class="pt-2 border-t border-slate-700/60 flex items-center justify-around">
                 <a href="https://www.youtube.com/@FLAIRZONE-k6g" target="_blank" class="text-slate-300 hover:text-red-500 text-lg"><i class="fab fa-youtube"></i></a>
                 <a href="https://www.instagram.com/flair_zone77777/" target="_blank" class="text-slate-300 hover:text-pink-500 text-lg"><i class="fab fa-instagram"></i></a>
@@ -131,78 +132,88 @@
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (OPTION 3-A POSITIONING) -->
     <section class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-800/60">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-slate-900 to-flair-navy pointer-events-none"></div>
         
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             
             <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-flair-blue text-xs md:text-sm font-semibold mb-6">
-                <i class="fas fa-certificate text-xs"></i> 100% CBSE & NCERT Aligned Academic Materials
+                <i class="fas fa-square-root-variable text-xs"></i> Dedicated Exclusively to CBSE Mathematics
             </div>
 
-            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-                Master CBSE Mathematics & Science with <br class="hidden md:block"/>
-                <span class="gradient-text">Precision Notes & Visual Concepts</span>
+            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight max-w-5xl mx-auto">
+                The Complete <span class="gradient-text">CBSE Mathematics Hub</span><br class="hidden sm:block"/>
+                <span class="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">(Class 9th to 12th)</span>
             </h1>
 
             <p class="max-w-2xl mx-auto text-base sm:text-lg text-slate-300 mb-8 leading-relaxed font-normal">
-                Structured formula sheets, chapter tests, exam-trap insights, and conceptual 1-minute video reels designed specifically for Class 9, 10, 11 & 12 students.
+                NCERT Ganita Manjari & Board Exam Prep — Ink-saving formula sheets, chapter practice tests, PYQs, and 1-minute visual concept reels.
             </p>
 
-            <!-- STATS / HIGHLIGHT BADGES -->
+            <!-- KEY STATS / HIGHLIGHT BADGES -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
                 <div class="glass-panel p-4 rounded-xl border-l-4 border-l-flair-blue">
-                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">New Curriculum</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">NCERT Class 9</div>
                     <div class="text-lg font-bold text-white mt-0.5">Ganita Manjari</div>
-                    <div class="text-[11px] text-slate-400">Class 9 Mathematics</div>
+                    <div class="text-[11px] text-slate-400">Parts I & II Complete</div>
                 </div>
                 <div class="glass-panel p-4 rounded-xl border-l-4 border-l-flair-orange">
                     <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Standardized</div>
                     <div class="text-lg font-bold text-white mt-0.5">Ghost Watermark</div>
-                    <div class="text-[11px] text-slate-400">Print-friendly 10% Opacity</div>
+                    <div class="text-[11px] text-slate-400">10% Opacity Centered</div>
                 </div>
                 <div class="glass-panel p-4 rounded-xl border-l-4 border-l-green-500">
-                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Board Pattern</div>
-                    <div class="text-lg font-bold text-white mt-0.5">PYQs & Marking</div>
-                    <div class="text-[11px] text-slate-400">CBSE Sample Questions</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Class 10-12 Board</div>
+                    <div class="text-lg font-bold text-white mt-0.5">Chapter-wise PYQs</div>
+                    <div class="text-[11px] text-slate-400">CBSE Marking Scheme</div>
                 </div>
                 <div class="glass-panel p-4 rounded-xl border-l-4 border-l-purple-500">
                     <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Visual Learning</div>
-                    <div class="text-lg font-bold text-white mt-0.5">Concept Reels</div>
-                    <div class="text-[11px] text-slate-400">Quick Exam Traps</div>
+                    <div class="text-lg font-bold text-white mt-0.5">Exam Trap Reels</div>
+                    <div class="text-[11px] text-slate-400">Short Concept Videos</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- MAIN ACADEMIC DASHBOARD / RESOURCES SECTION -->
+    <!-- MAIN ACADEMIC DASHBOARD -->
     <section id="resources" class="py-12 md:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-grow">
         
-        <!-- CONTROL PANEL: CLASS SELECTOR & SEARCH -->
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <!-- TOP CONTROL PANEL: CLASS SELECTOR & SEARCH -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             
             <!-- CLASS TAB CONTROLS -->
             <div class="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none" id="class-tabs">
                 <button onclick="selectClass('9')" id="tab-9" class="class-tab px-5 py-2.5 rounded-xl font-heading font-semibold text-sm transition-all bg-flair-blue text-white shadow-lg shadow-blue-500/20 flex items-center gap-2 whitespace-nowrap">
-                    <i class="fas fa-graduation-cap text-xs"></i> Class 9th
+                    <i class="fas fa-graduation-cap text-xs"></i> Class 9th Maths
                 </button>
                 <button onclick="selectClass('10')" id="tab-10" class="class-tab px-5 py-2.5 rounded-xl font-heading font-semibold text-sm transition-all bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white flex items-center gap-2 whitespace-nowrap">
-                    Class 10th
+                    Class 10th Maths
                 </button>
                 <button onclick="selectClass('11')" id="tab-11" class="class-tab px-5 py-2.5 rounded-xl font-heading font-semibold text-sm transition-all bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white flex items-center gap-2 whitespace-nowrap">
-                    Class 11th
+                    Class 11th Maths
                 </button>
                 <button onclick="selectClass('12')" id="tab-12" class="class-tab px-5 py-2.5 rounded-xl font-heading font-semibold text-sm transition-all bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white flex items-center gap-2 whitespace-nowrap">
-                    Class 12th
+                    Class 12th Maths
                 </button>
             </div>
 
             <!-- SEARCH BAR -->
             <div class="relative w-full md:w-72">
                 <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
-                <input type="text" id="search-input" onkeyup="filterChapters()" placeholder="Search topic or chapter..." class="w-full bg-slate-800/80 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-flair-blue focus:ring-1 focus:ring-flair-blue transition-all">
+                <input type="text" id="search-input" onkeyup="filterChapters()" placeholder="Search chapter or topic..." class="w-full bg-slate-800/80 border border-slate-700 rounded-xl pl-10 pr-4 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-flair-blue focus:ring-1 focus:ring-flair-blue transition-all">
             </div>
+        </div>
+
+        <!-- DUAL-VIEW TOGGLE (OPTION 1-C) -->
+        <div class="bg-slate-900/90 p-1.5 rounded-xl border border-slate-800 inline-flex items-center gap-2 mb-8">
+            <button id="view-chapters-btn" onclick="switchView('chapters')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all bg-flair-blue text-white shadow-md flex items-center gap-2">
+                <i class="fas fa-book font-normal"></i> Chapter Resources Grid
+            </button>
+            <button id="view-syllabus-btn" onclick="switchView('syllabus')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-2">
+                <i class="fas fa-list-check font-normal"></i> Official CBSE Syllabus & Weightage
+            </button>
         </div>
 
         <!-- ACTIVE SELECTION HEADER -->
@@ -212,17 +223,22 @@
                     Class 9 Mathematics Resources
                 </h2>
                 <p id="active-class-subtitle" class="text-xs text-slate-400 mt-0.5">
-                    NCERT Curriculum Alignment: <span class="text-flair-orange font-semibold">Ganita Manjari</span>
+                    Curriculum Focus: <span class="text-flair-orange font-semibold">NCERT Ganita Manjari (Parts I & II)</span>
                 </p>
             </div>
-            <div class="text-xs text-slate-400 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700/50">
-                <i class="fas fa-book-open text-flair-blue mr-1"></i> CBSE Board Syllabus
+            <div class="text-xs text-slate-400 bg-slate-800/60 px-3 py-1.5 rounded-lg border border-slate-700/50 hidden sm:block">
+                <i class="fas fa-check-double text-green-400 mr-1"></i> 100% CBSE Aligned
             </div>
         </div>
 
-        <!-- CHAPTERS CONTAINER GRID -->
-        <div id="chapters-grid" class="space-y-8">
+        <!-- VIEW 1: CHAPTER RESOURCES GRID -->
+        <div id="view-chapters-container" class="space-y-8">
             <!-- Dynamic JavaScript content renders here -->
+        </div>
+
+        <!-- VIEW 2: SYLLABUS & EXAM WEIGHTAGE OVERVIEW -->
+        <div id="view-syllabus-container" class="hidden space-y-6">
+            <!-- Rendered dynamically based on selected class -->
         </div>
 
     </section>
@@ -232,12 +248,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
                 <div>
-                    <div class="text-xs font-bold text-flair-orange uppercase tracking-wider">Visual Learning Engine</div>
+                    <div class="text-xs font-bold text-flair-orange uppercase tracking-wider">Visual Mathematics Engine</div>
                     <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-white mt-1">
-                        Concept Explainer Reels & Shorts
+                        CBSE Concept Explainer Reels & Shorts
                     </h2>
                     <p class="text-sm text-slate-400 mt-1">
-                        Short, high-retention 45-second video breakdowns addressing common student exam traps.
+                        45-second video breakdowns targeting common student mistakes and exam traps.
                     </p>
                 </div>
                 <div class="flex items-center gap-3">
@@ -263,21 +279,21 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div class="md:col-span-2 space-y-4">
                     <div class="w-12 h-12 rounded-xl bg-white p-1 inline-flex items-center justify-center">
-                        <img src="FLAIR ZONE_2.png" alt="FLAIR ZONE Logo" class="w-full h-full object-contain" onError="this.onerror=null;this.src='FLAIR ZONE.png';">
+                        <img src="FLAIR ZONE_2.png" alt="FLAIR ZONE Logo" class="w-full h-full object-contain" onError="this.onerror=null;this.src='flairzone-logo.png';">
                     </div>
                     <h3 class="font-heading font-bold text-2xl text-white">About FLAIR ZONE</h3>
                     <p class="text-sm text-slate-300 leading-relaxed">
-                        FLAIR ZONE is an educational initiative dedicated to delivering clear, precise, and highly structured learning materials for CBSE Class 9 to 12 students. Guided by our core motto, <em>"Guided by Eternal Light of Knowledge"</em>, every note, formula sheet, and video concept is crafted with strict mathematical accuracy and print-friendly design standards.
+                        FLAIR ZONE is an educational brand focused exclusively on CBSE Mathematics for Class 9 through 12. Guided by our motto, <em>"Guided by Eternal Light of Knowledge"</em>, we provide print-optimized LaTeX formula sheets, NCERT Ganita Manjari study notes, and short visual explainer reels.
                     </p>
                     <div class="flex flex-wrap gap-4 pt-2 text-xs font-medium text-slate-400">
-                        <span class="flex items-center gap-1.5"><i class="fas fa-check-circle text-flair-blue"></i> Print-Optimized Ink-Saving Layouts</span>
-                        <span class="flex items-center gap-1.5"><i class="fas fa-check-circle text-flair-orange"></i> 10% Centered Watermark</span>
+                        <span class="flex items-center gap-1.5"><i class="fas fa-check-circle text-flair-blue"></i> Ink-Saving White Background Headers</span>
+                        <span class="flex items-center gap-1.5"><i class="fas fa-check-circle text-flair-orange"></i> 10% Centered Watermark Standard</span>
                         <span class="flex items-center gap-1.5"><i class="fas fa-check-circle text-green-500"></i> Direct NCERT Mapping</span>
                     </div>
                 </div>
                 <div class="bg-slate-900/90 p-6 rounded-xl border border-slate-800 text-center space-y-4">
                     <div class="text-xs font-bold uppercase text-flair-orange tracking-wider">Official Channels</div>
-                    <div class="text-sm text-slate-300">Follow us on social media for daily formula reels and test releases:</div>
+                    <div class="text-sm text-slate-300">Follow us for daily concept reels & release alerts:</div>
                     <div class="flex justify-center gap-3">
                         <a href="https://www.youtube.com/@FLAIRZONE-k6g" target="_blank" class="w-10 h-10 rounded-lg bg-red-600/20 text-red-500 hover:bg-red-600 hover:text-white flex items-center justify-center transition-all text-lg"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.instagram.com/flair_zone77777/" target="_blank" class="w-10 h-10 rounded-lg bg-pink-600/20 text-pink-500 hover:bg-pink-600 hover:text-white flex items-center justify-center transition-all text-lg"><i class="fab fa-instagram"></i></a>
@@ -285,7 +301,7 @@
                         <a href="https://www.linkedin.com/company/flair-zone/" target="_blank" class="w-10 h-10 rounded-lg bg-blue-700/20 text-blue-400 hover:bg-blue-700 hover:text-white flex items-center justify-center transition-all text-lg"><i class="fab fa-linkedin"></i></a>
                     </div>
                     <div class="text-xs text-slate-400 pt-2 border-t border-slate-800">
-                        Contact: <a href="mailto:shunyaflairzone7@gmail.com" class="text-flair-blue hover:underline">shunyaflairzone7@gmail.com</a>
+                        Email: <a href="mailto:shunyaflairzone7@gmail.com" class="text-flair-blue hover:underline">shunyaflairzone7@gmail.com</a>
                     </div>
                 </div>
             </div>
@@ -297,7 +313,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-lg bg-white p-0.5 flex items-center justify-center">
-                    <img src="FLAIR ZONE_2.png" alt="FLAIR ZONE" class="w-full h-full object-contain" onError="this.onerror=null;this.src='FLAIR ZONE.png';">
+                    <img src="FLAIR ZONE_2.png" alt="FLAIR ZONE" class="w-full h-full object-contain" onError="this.onerror=null;this.src='flairzone-logo.png';">
                 </div>
                 <div>
                     <div class="font-heading font-bold text-white text-sm">FLAIR ZONE</div>
@@ -310,36 +326,53 @@
                 <a href="https://www.instagram.com/flair_zone77777/" target="_blank" class="hover:text-white">Instagram</a>
                 <a href="https://www.facebook.com/profile.php?id=61565416173199" target="_blank" class="hover:text-white">Facebook</a>
                 <a href="https://www.linkedin.com/company/flair-zone/" target="_blank" class="hover:text-white">LinkedIn</a>
-                <a href="mailto:shunyaflairzone7@gmail.com" class="hover:text-white">Email Support</a>
+                <a href="mailto:shunyaflairzone7@gmail.com" class="hover:text-white">Email</a>
             </div>
         </div>
     </footer>
 
-    <!-- RESOURCE PRODUCTION PREVIEW MODAL -->
+    <!-- DUAL OPTION MODAL (OPTION 2-C: OBJECTIVES + NOTIFICATIONS) -->
     <div id="modal-backdrop" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-flair-darkCard border border-slate-700 rounded-2xl max-w-md w-full p-6 relative shadow-2xl text-center">
+        <div class="bg-flair-darkCard border border-slate-700 rounded-2xl max-w-lg w-full p-6 relative shadow-2xl text-left">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
                 <i class="fas fa-times"></i>
             </button>
-            <div class="w-16 h-16 rounded-2xl bg-blue-500/10 text-flair-blue border border-blue-500/20 flex items-center justify-center mx-auto mb-4 text-2xl">
-                <i class="fas fa-hourglass-half animate-pulse"></i>
+            
+            <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-blue-500/10 text-flair-blue border border-blue-500/20 flex items-center justify-center text-xl">
+                    <i class="fas fa-hourglass-half animate-pulse"></i>
+                </div>
+                <div>
+                    <h3 id="modal-title" class="font-heading font-bold text-lg text-white">Resource In Production</h3>
+                    <div id="modal-chapter-tag" class="text-xs text-flair-orange font-semibold">Class 9 Ganita Manjari</div>
+                </div>
             </div>
-            <h3 id="modal-title" class="font-heading font-bold text-xl text-white mb-2">Resource In Production</h3>
-            <p id="modal-desc" class="text-sm text-slate-300 mb-6 leading-relaxed">
-                This document is currently undergoing rigorous NCERT verification and LaTeX layout formatting according to our 10% opacity watermark standard.
-            </p>
-            <div class="bg-slate-900 p-4 rounded-xl text-xs text-slate-400 space-y-2 mb-6 text-left">
-                <div class="flex items-center gap-2"><i class="fas fa-shield-alt text-flair-blue"></i> 100% NCERT Ganita Manjari Verified</div>
-                <div class="flex items-center gap-2"><i class="fas fa-print text-flair-orange"></i> Ink-Saving White Header Standard</div>
-                <div class="flex items-center gap-2"><i class="fas fa-file-pdf text-red-400"></i> Free Direct PDF Download</div>
+
+            <!-- NCERT OBJECTIVES SECTION -->
+            <div class="bg-slate-900/90 p-4 rounded-xl border border-slate-800 mb-4 space-y-2">
+                <div class="text-xs font-bold uppercase text-slate-300 flex items-center gap-1.5">
+                    <i class="fas fa-bullseye text-flair-blue"></i> CBSE Learning Objectives & Key Focus:
+                </div>
+                <p id="modal-objectives" class="text-xs text-slate-300 leading-relaxed">
+                    Analyzing key definitions, NCERT proofs, and exam problem structures.
+                </p>
             </div>
-            <div class="flex flex-col gap-2">
-                <a href="https://www.instagram.com/flair_zone77777/" target="_blank" class="w-full py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-sm flex items-center justify-center gap-2">
-                    <i class="fab fa-instagram"></i> Follow on Instagram for Release Alerts
+
+            <!-- WATERMARK & ACCURACY STANDARDS -->
+            <div class="bg-slate-900/50 p-3 rounded-xl border border-slate-800/80 text-xs text-slate-400 space-y-1.5 mb-5">
+                <div class="flex items-center gap-2"><i class="fas fa-shield-alt text-green-400"></i> 100% NCERT Verified Proofs</div>
+                <div class="flex items-center gap-2"><i class="fas fa-print text-flair-orange"></i> Ink-Saving Header Layout</div>
+                <div class="flex items-center gap-2"><i class="fas fa-file-pdf text-red-400"></i> 10% Centered FLAIR ZONE Watermark</div>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <a href="https://www.instagram.com/flair_zone77777/" target="_blank" class="py-2.5 px-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-md">
+                    <i class="fab fa-instagram"></i> Instagram Release Alert
                 </a>
-                <button onclick="closeModal()" class="w-full py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold">
-                    Close Window
-                </button>
+                <a href="https://www.youtube.com/@FLAIRZONE-k6g" target="_blank" class="py-2.5 px-3 rounded-xl bg-red-600 text-white font-semibold text-xs flex items-center justify-center gap-1.5 shadow-md">
+                    <i class="fab fa-youtube"></i> YouTube Release Alert
+                </a>
             </div>
         </div>
     </div>
@@ -351,23 +384,20 @@
                 <i class="fas fa-times"></i>
             </button>
             
-            <!-- REEL PREVIEW CONTAINER -->
             <div class="bg-slate-950 aspect-reel relative flex flex-col justify-between p-6 bg-cover bg-center" id="reel-modal-bg">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/60 pointer-events-none"></div>
                 
-                <!-- WATERMARK OVERLAY -->
                 <div class="relative z-10 flex items-center justify-between">
                     <div class="flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                        <img src="FLAIR ZONE_2.png" alt="FLAIR ZONE" class="w-4 h-4 object-contain" onError="this.onerror=null;this.src='FLAIR ZONE.png';">
+                        <img src="FLAIR ZONE_2.png" alt="FLAIR ZONE" class="w-4 h-4 object-contain" onError="this.onerror=null;this.src='flairzone-logo.png';">
                         <span class="text-[11px] font-bold text-white tracking-wide">FLAIR ZONE</span>
                     </div>
-                    <span class="text-[10px] bg-flair-blue/80 text-white font-semibold px-2 py-0.5 rounded-md">1-Min Concept</span>
+                    <span class="text-[10px] bg-flair-blue/80 text-white font-semibold px-2 py-0.5 rounded-md">Maths Concept</span>
                 </div>
 
-                <!-- REEL INFO & ACTION -->
                 <div class="relative z-10 space-y-3">
                     <span id="reel-modal-tag" class="text-xs font-bold text-flair-orange bg-orange-500/10 px-2.5 py-1 rounded-md border border-orange-500/20 inline-block">
-                        #GanitaManjari
+                        #CBSEMaths
                     </span>
                     <h4 id="reel-modal-topic" class="font-heading font-extrabold text-xl text-white leading-tight">
                         Concept Reel Title
@@ -378,10 +408,10 @@
                     
                     <div class="pt-2 flex gap-2">
                         <a id="reel-modal-ig-link" href="https://www.instagram.com/flair_zone77777/" target="_blank" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg">
-                            <i class="fab fa-instagram"></i> Watch Reel
+                            <i class="fab fa-instagram"></i> Instagram
                         </a>
                         <a id="reel-modal-yt-link" href="https://www.youtube.com/@FLAIRZONE-k6g" target="_blank" class="flex-1 py-2.5 rounded-xl bg-red-600 text-white text-xs font-bold flex items-center justify-center gap-1.5 shadow-lg">
-                            <i class="fab fa-youtube"></i> YouTube Short
+                            <i class="fab fa-youtube"></i> YouTube
                         </a>
                     </div>
                 </div>
@@ -389,155 +419,262 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPT CONTENT ENGINE -->
+    <!-- JAVASCRIPT DATABASE & ENGINE -->
     <script>
-        // CURRICULUM DATABASE
-        const chaptersData = {
+        // COMPLETE CBSE MATHEMATICS DATABASE (CLASSES 9-12)
+        const mathDatabase = {
             '9': {
                 title: "Class 9th Mathematics (CBSE)",
-                subtitle: "Updated NCERT Alignment: Ganita Manjari Curriculum",
+                subtitle: "Updated NCERT Alignment: Ganita Manjari (Parts I & II)",
+                syllabus: [
+                    { unit: "Unit I: Number Systems", weightage: "20 Marks", chapters: ["The World of Numbers (Real Numbers, Rationalization, Exponents)"] },
+                    { unit: "Unit II: Algebra & Coordinate Geometry", weightage: "25 Marks", chapters: ["Orienting Yourself: Coordinates", "Introduction to Linear Polynomials", "Exploring Algebraic Identities"] },
+                    { unit: "Unit III: Geometry", weightage: "27 Marks", chapters: ["Lines, Angles & Triangles", "Congruence of Triangles", "Quadrilaterals & Polygons"] },
+                    { unit: "Unit IV: Mensuration & Statistics", weightage: "08 Marks", chapters: ["Mensuration: Areas & Volumes", "Statistics & Data Handling"] }
+                ],
                 chapters: [
                     {
                         id: 'c9-ch1',
                         number: 'Chapter 1',
-                        name: 'Number Systems (The World of Numbers)',
-                        ncertCode: 'Ganita Manjari Ch 1',
-                        desc: 'Real numbers, rationalization rules, non-terminating decimals, and radical exponent laws.',
-                        formulaSheetUrl: '', // Add Google Drive PDF link here when ready
+                        name: 'Orienting Yourself: The Use of Coordinates',
+                        ncertCode: 'Ganita Manjari Part I - Ch 1',
+                        desc: 'Cartesian plane, origin, axes, plotting points, coordinates of points in four quadrants, and spatial orientation.',
+                        objectives: 'Master Cartesian coordinates, abscissa, ordinate, quadrant sign rules, and plotting 2D points accurately.',
+                        formulaSheetUrl: '',
                         testUrl: '',
                         pyqUrl: '',
-                        notesUrl: '',
                         reels: [
-                            { title: 'The Rationalization Sign Trap', tag: 'Exam Trap', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' },
-                            { title: 'Converting 0.333... to p/q Form', tag: 'NCERT Method', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' },
-                            { title: 'Laws of Exponents Made Simple', tag: 'Formula Trick', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
+                            { title: 'Quadrant Sign Convention Shortcut', tag: 'Concept Reel', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
                         ]
                     },
                     {
                         id: 'c9-ch2',
                         number: 'Chapter 2',
                         name: 'Introduction to Linear Polynomials',
-                        ncertCode: 'Ganita Manjari Ch 2',
-                        desc: 'Degree of polynomials, linear patterns, zeroes of linear polynomials (x = -b/a), and graph visualization.',
+                        ncertCode: 'Ganita Manjari Part I - Ch 2',
+                        desc: 'Variables, constants, degree of polynomials, linear patterns, zeroes of linear polynomials (x = -b/a), and graph visualization.',
+                        objectives: 'Understand polynomial terms, linear growth vs decay, calculating zeroes, and geometric straight-line representation.',
                         formulaSheetUrl: '',
                         testUrl: '',
                         pyqUrl: '',
-                        notesUrl: '',
                         reels: [
-                            { title: 'Finding Zero of Linear Polynomial', tag: 'Concept 1', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' },
-                            { title: 'Linear Growth vs Linear Decay', tag: 'Graph Tip', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
+                            { title: 'Finding Zero of Linear Polynomial', tag: 'Exam Trap', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
                         ]
                     },
                     {
                         id: 'c9-ch3',
                         number: 'Chapter 3',
-                        name: 'Coordinate Geometry (Orienting Yourself)',
-                        ncertCode: 'Ganita Manjari Ch 3',
-                        desc: 'Cartesian plane, abscissa, ordinate, quadrant signs, and plotting points.',
+                        name: 'The World of Numbers',
+                        ncertCode: 'Ganita Manjari Part I - Ch 3',
+                        desc: 'Real number system (N, W, Z, Q, I), non-terminating recurring decimals to p/q form, rationalizing the denominator, and radical exponent laws.',
+                        objectives: 'Master rationalizing factor signs, exponent laws, decimal expansion rules, and irrational numbers.',
                         formulaSheetUrl: '',
                         testUrl: '',
                         pyqUrl: '',
-                        notesUrl: '',
                         reels: [
-                            { title: 'Quadrant Sign Rules Quick Recall', tag: 'Cheat Sheet', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
+                            { title: 'The Rationalization Sign Trap', tag: 'Exam Trap', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' },
+                            { title: 'Converting 0.333... to p/q Form', tag: 'NCERT Step', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
                         ]
+                    },
+                    {
+                        id: 'c9-ch4',
+                        number: 'Chapter 4',
+                        name: 'Exploring Algebraic Identities',
+                        ncertCode: 'Ganita Manjari Part I - Ch 4',
+                        desc: 'Expansion of quadratic and cubic binomials/trinomials, factorisation of algebraic expressions, and identity applications.',
+                        objectives: 'Apply standard identities (a+b+c)^2, (a±b)^3, and a^3+b^3+c^3-3abc for fast algebraic factorisation.',
+                        formulaSheetUrl: '',
+                        testUrl: '',
+                        pyqUrl: '',
+                        reels: []
+                    },
+                    {
+                        id: 'c9-ch5',
+                        number: 'Chapter 5',
+                        name: 'Lines, Angles, and Triangles',
+                        ncertCode: 'Ganita Manjari Part II - Ch 5',
+                        desc: 'Parallel lines, transversal angle properties, angle sum property of triangles, and geometric proofs.',
+                        objectives: 'Solve corresponding, alternate interior, and co-interior angle problems with geometric proofs.',
+                        formulaSheetUrl: '',
+                        testUrl: '',
+                        pyqUrl: '',
+                        reels: []
+                    },
+                    {
+                        id: 'c9-ch6',
+                        number: 'Chapter 6',
+                        name: 'Congruence of Triangles',
+                        ncertCode: 'Ganita Manjari Part II - Ch 6',
+                        desc: 'SAS, ASA, AAS, SSS, and RHS congruence criteria, properties of isosceles triangles, and inequality rules.',
+                        objectives: 'Construct rigorous two-column geometric proofs using standard triangle congruence rules.',
+                        formulaSheetUrl: '',
+                        testUrl: '',
+                        pyqUrl: '',
+                        reels: []
+                    },
+                    {
+                        id: 'c9-ch7',
+                        number: 'Chapter 7',
+                        name: 'Quadrilaterals and Polygons',
+                        ncertCode: 'Ganita Manjari Part II - Ch 7',
+                        desc: 'Properties of parallelograms, rectangles, rhombuses, squares, and the Mid-Point Theorem with proofs.',
+                        objectives: 'Understand quadrilateral diagonal properties and master Mid-Point Theorem application proofs.',
+                        formulaSheetUrl: '',
+                        testUrl: '',
+                        pyqUrl: '',
+                        reels: []
+                    },
+                    {
+                        id: 'c9-ch8',
+                        number: 'Chapter 8',
+                        name: 'Mensuration: Areas and Volumes',
+                        ncertCode: 'Ganita Manjari Part II - Ch 8',
+                        desc: 'Herons formula for area of triangles, surface areas and volumes of spheres, hemispheres, right circular cones, and cylinders.',
+                        objectives: 'Calculate total and lateral surface areas and volumes of 3D geometric solids.',
+                        formulaSheetUrl: '',
+                        testUrl: '',
+                        pyqUrl: '',
+                        reels: []
+                    },
+                    {
+                        id: 'c9-ch9',
+                        number: 'Chapter 9',
+                        name: 'Statistics & Data Handling',
+                        ncertCode: 'Ganita Manjari Part II - Ch 9',
+                        desc: 'Collection of data, frequency distribution tables, bar graphs, histograms with varying base lengths, and frequency polygons.',
+                        objectives: 'Construct bar charts, histograms with adjusted frequency densities, and frequency polygons.',
+                        formulaSheetUrl: '',
+                        testUrl: '',
+                        pyqUrl: '',
+                        reels: []
                     }
                 ]
             },
             '10': {
                 title: "Class 10th Mathematics (CBSE)",
-                subtitle: "Standard NCERT & CBSE Board Exam Preparation",
+                subtitle: "Standard NCERT Board Exam Preparation",
+                syllabus: [
+                    { unit: "Unit I: Number Systems", weightage: "06 Marks", chapters: ["Real Numbers"] },
+                    { unit: "Unit II: Algebra", weightage: "20 Marks", chapters: ["Polynomials", "Pair of Linear Equations", "Quadratic Equations", "Arithmetic Progressions"] },
+                    { unit: "Unit III: Coordinate Geometry", weightage: "06 Marks", chapters: ["Coordinate Geometry"] },
+                    { unit: "Unit IV: Geometry", weightage: "15 Marks", chapters: ["Triangles", "Circles"] },
+                    { unit: "Unit V: Trigonometry", weightage: "12 Marks", chapters: ["Introduction to Trigonometry", "Applications of Trigonometry"] },
+                    { unit: "Unit VI: Mensuration & Statistics/Prob.", weightage: "21 Marks", chapters: ["Areas Related to Circles", "Surface Areas & Volumes", "Statistics", "Probability"] }
+                ],
                 chapters: [
-                    {
-                        id: 'c10-ch1',
-                        number: 'Chapter 1',
-                        name: 'Real Numbers',
-                        ncertCode: 'NCERT Class 10',
-                        desc: 'Fundamental Theorem of Arithmetic, proving irrationality of √2, √3, √5, and HCF-LCM properties.',
-                        formulaSheetUrl: '',
-                        testUrl: '',
-                        pyqUrl: '',
-                        notesUrl: '',
-                        reels: [
-                            { title: 'Proving √5 is Irrational in 45 Sec', tag: 'Board Favorite', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
-                        ]
-                    },
-                    {
-                        id: 'c10-ch2',
-                        number: 'Chapter 2',
-                        name: 'Polynomials',
-                        ncertCode: 'NCERT Class 10',
-                        desc: 'Geometrical meaning of zeroes, relationship between coefficients and zeroes of quadratic polynomials.',
-                        formulaSheetUrl: '',
-                        testUrl: '',
-                        pyqUrl: '',
-                        notesUrl: '',
-                        reels: [
-                            { title: 'Sum & Product of Zeroes Trick', tag: 'Formula', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
-                        ]
-                    }
+                    { id: 'c10-ch1', number: 'Chapter 1', name: 'Real Numbers', ncertCode: 'NCERT Class 10 Ch 1', desc: 'Fundamental Theorem of Arithmetic, proving irrationality of √2, √3, √5.', objectives: 'Master prime factorization, HCF-LCM relationships, and formal proof by contradiction for irrational numbers.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch2', number: 'Chapter 2', name: 'Polynomials', ncertCode: 'NCERT Class 10 Ch 2', desc: 'Geometrical meaning of zeroes, relationship between coefficients and zeroes of quadratic polynomials.', objectives: 'Relate zeroes to graph x-intercepts and apply alpha + beta = -b/a, alpha * beta = c/a formulas.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch3', number: 'Chapter 3', name: 'Pair of Linear Equations in Two Variables', ncertCode: 'NCERT Class 10 Ch 3', desc: 'Graphical, Substitution, and Elimination methods; consistency conditions (a1/a2, b1/b2, c1/c2).', objectives: 'Solve system of equations and test for unique solution, infinitely many solutions, or parallel lines.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch4', number: 'Chapter 4', name: 'Quadratic Equations', ncertCode: 'NCERT Class 10 Ch 4', desc: 'Standard form ax^2 + bx + c = 0, factorization, Quadratic Formula, and Discriminant (D).', objectives: 'Analyze nature of roots using D = b^2 - 4ac and solve word problems on speed, time, and work.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch5', number: 'Chapter 5', name: 'Arithmetic Progressions', ncertCode: 'NCERT Class 10 Ch 5', desc: 'nth term of an AP (an = a + (n-1)d) and sum of first n terms (Sn).', objectives: 'Calculate common difference, nth terms from end, and real-life sum of series problems.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch6', number: 'Chapter 6', name: 'Triangles', ncertCode: 'NCERT Class 10 Ch 6', desc: 'Basic Proportionality Theorem (Thales Theorem) and similarity criteria (AAA, SSS, SAS).', objectives: 'Prove BPT and apply similarity criteria to solve geometric length problems.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch7', number: 'Chapter 7', name: 'Coordinate Geometry', ncertCode: 'NCERT Class 10 Ch 7', desc: 'Distance formula, Section formula, and midpoint formula.', objectives: 'Find distances, internal section division points, and collinearity of 2D points.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch8', number: 'Chapter 8', name: 'Introduction to Trigonometry', ncertCode: 'NCERT Class 10 Ch 8', desc: 'Trigonometric ratios, values at specific angles (0°-90°), and identity sin^2θ + cos^2θ = 1.', objectives: 'Evaluate trig ratios at standard angles and prove complex trigonometric identities.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch9', number: 'Chapter 9', name: 'Some Applications of Trigonometry', ncertCode: 'NCERT Class 10 Ch 9', desc: 'Heights and distances, angle of elevation, and angle of depression.', objectives: 'Solve 2D height and distance word problems involving two right-angled triangles.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch10', number: 'Chapter 10', name: 'Circles', ncertCode: 'NCERT Class 10 Ch 10', desc: 'Tangent to a circle, radius perpendicular to tangent, equal lengths of external tangents.', objectives: 'Prove geometric tangent theorems and calculate lengths of tangents.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch11', number: 'Chapter 11', name: 'Areas Related to Circles', ncertCode: 'NCERT Class 10 Ch 11', desc: 'Area of sector and segment of a circle.', objectives: 'Calculate sector areas, arc lengths, and major/minor segment areas.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch12', number: 'Chapter 12', name: 'Surface Areas and Volumes', ncertCode: 'NCERT Class 10 Ch 12', desc: 'Surface areas and volumes of combinations of 3D solids.', objectives: 'Calculate combined surface areas and volumes of recast 3D objects.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch13', number: 'Chapter 13', name: 'Statistics', ncertCode: 'NCERT Class 10 Ch 13', desc: 'Mean, Median, and Mode of grouped data.', objectives: 'Compute mean (step-deviation method), median class, and modal class for grouped data.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c10-ch14', number: 'Chapter 14', name: 'Probability', ncertCode: 'NCERT Class 10 Ch 14', desc: 'Classical definition of probability, simple events, complementary events.', objectives: 'Calculate theoretical probability for coins, dice, cards, and marbles.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] }
                 ]
             },
             '11': {
                 title: "Class 11th Mathematics (CBSE)",
-                subtitle: "NCERT Senior Secondary & Foundation for Competitive Exams",
+                subtitle: "NCERT Senior Secondary & Foundation for JEE",
+                syllabus: [
+                    { unit: "Unit I: Sets & Functions", weightage: "23 Marks", chapters: ["Sets", "Relations & Functions", "Trigonometric Functions"] },
+                    { unit: "Unit II: Algebra", weightage: "25 Marks", chapters: ["Complex Numbers", "Linear Inequalities", "Permutations & Combinations", "Binomial Theorem", "Sequences & Series"] },
+                    { unit: "Unit III: Coordinate Geometry", weightage: "12 Marks", chapters: ["Straight Lines", "Conic Sections", "Introduction to 3D Geometry"] },
+                    { unit: "Unit IV: Calculus & Stat/Prob.", weightage: "20 Marks", chapters: ["Limits & Derivatives", "Statistics", "Probability"] }
+                ],
                 chapters: [
-                    {
-                        id: 'c11-ch1',
-                        number: 'Chapter 1',
-                        name: 'Sets & Functions',
-                        ncertCode: 'NCERT Class 11',
-                        desc: 'Roster vs Set-Builder form, subsets, power sets, Venn diagrams, and domain-range of functions.',
-                        formulaSheetUrl: '',
-                        testUrl: '',
-                        pyqUrl: '',
-                        notesUrl: '',
-                        reels: [
-                            { title: 'Subset Count Formula Secret', tag: 'Quick Trick', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
-                        ]
-                    }
+                    { id: 'c11-ch1', number: 'Chapter 1', name: 'Sets', ncertCode: 'NCERT Class 11 Ch 1', desc: 'Roster vs Set-Builder form, subsets, power sets, Venn diagrams, union and intersection.', objectives: 'Understand set operations, power set cardinality (2^n), and solve word problems using Venn diagrams.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch2', number: 'Chapter 2', name: 'Relations and Functions', ncertCode: 'NCERT Class 11 Ch 2', desc: 'Cartesian product of sets, domain, codomain, range, modulus, greatest integer function.', objectives: 'Identify function domains and ranges and sketch graphs of special real-valued functions.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch3', number: 'Chapter 3', name: 'Trigonometric Functions', ncertCode: 'NCERT Class 11 Ch 3', desc: 'Radian measure, compound angle formulas, multiple and sub-multiple angle identities.', objectives: 'Convert degrees to radians and master trigonometric compound identities.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch4', number: 'Chapter 4', name: 'Complex Numbers and Quadratic Equations', ncertCode: 'NCERT Class 11 Ch 4', desc: 'Imaginary unit i, standard form a + ib, modulus, conjugate, complex quadratic roots.', objectives: 'Perform complex arithmetic, find moduli and conjugates, and solve complex quadratic equations.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch5', number: 'Chapter 5', name: 'Linear Inequalities', ncertCode: 'NCERT Class 11 Ch 5', desc: 'Algebraic and graphical solutions of linear inequalities in one and two variables.', objectives: 'Shade feasible region half-planes for systems of 2D linear inequalities.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch6', number: 'Chapter 6', name: 'Permutations and Combinations', ncertCode: 'NCERT Class 11 Ch 6', desc: 'Fundamental principle of counting, nPr and nCr formulas and application problems.', objectives: 'Solve arrangement and selection problems involving restrictions.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch7', number: 'Chapter 7', name: 'Binomial Theorem', ncertCode: 'NCERT Class 11 Ch 7', desc: 'Statement and proof of Binomial Theorem for positive integral indices, general/middle terms.', objectives: 'Expand (x+y)^n and determine specific or middle terms in binomial expansions.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch8', number: 'Chapter 8', name: 'Sequences and Series', ncertCode: 'NCERT Class 11 Ch 8', desc: 'AP, GP, nth term, sum to n terms, infinite GP sum, AM-GM relationship.', objectives: 'Calculate GP sums, infinite GP convergences, and apply AM >= GM inequality.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch9', number: 'Chapter 9', name: 'Straight Lines', ncertCode: 'NCERT Class 11 Ch 9', desc: 'Slope of a line, various line forms, distance of a point from a line.', objectives: 'Find line equations, perpendicular distances, and angles between intersecting lines.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch10', number: 'Chapter 10', name: 'Conic Sections', ncertCode: 'NCERT Class 11 Ch 10', desc: 'Standard equations and properties of Circle, Parabola, Ellipse, and Hyperbola.', objectives: 'Derive foci, directrix, eccentricity, and latus rectum for standard conic sections.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch11', number: 'Chapter 11', name: 'Introduction to 3D Geometry', ncertCode: 'NCERT Class 11 Ch 11', desc: 'Coordinate axes and planes in 3D space, coordinates of a point, distance and section formulas.', objectives: 'Locate octants in 3D space and calculate 3D distances and section division points.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch12', number: 'Chapter 12', name: 'Limits and Derivatives', ncertCode: 'NCERT Class 11 Ch 12', desc: 'Intuitive idea of limits, standard trig limits, first principles differentiation.', objectives: 'Evaluate limits using algebraic/trig rules and differentiate functions from first principles.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch13', number: 'Chapter 13', name: 'Statistics', ncertCode: 'NCERT Class 11 Ch 13', desc: 'Measures of dispersion: Range, Mean deviation, Variance, Standard deviation.', objectives: 'Calculate variance and standard deviation for discrete and continuous frequency distributions.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c11-ch14', number: 'Chapter 14', name: 'Probability', ncertCode: 'NCERT Class 11 Ch 14', desc: 'Random experiments, sample space, events, axiomatic approach to probability.', objectives: 'Define sample spaces, mutually exclusive events, and apply axiomatic probability addition rules.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] }
                 ]
             },
             '12': {
                 title: "Class 12th Mathematics (CBSE)",
-                subtitle: "CBSE Board Exam Prep & Marking Scheme Practice",
+                subtitle: "NCERT Class 12 Board Exam & Entrance Marking Practice",
+                syllabus: [
+                    { unit: "Unit I: Relations & Functions", weightage: "08 Marks", chapters: ["Relations & Functions", "Inverse Trigonometric Functions"] },
+                    { unit: "Unit II: Algebra", weightage: "10 Marks", chapters: ["Matrices", "Determinants"] },
+                    { unit: "Unit III: Calculus", weightage: "35 Marks", chapters: ["Continuity & Differentiability", "Application of Derivatives", "Integrals", "Application of Integrals", "Differential Equations"] },
+                    { unit: "Unit IV: Vectors & 3D Geometry", weightage: "14 Marks", chapters: ["Vector Algebra", "Three Dimensional Geometry"] },
+                    { unit: "Unit V: Linear Programming & Prob.", weightage: "13 Marks", chapters: ["Linear Programming", "Probability"] }
+                ],
                 chapters: [
-                    {
-                        id: 'c12-ch1',
-                        number: 'Chapter 1',
-                        name: 'Relations & Functions',
-                        ncertCode: 'NCERT Class 12',
-                        desc: 'Reflexive, Symmetric, Transitive relations, Equivalence relations, One-one (Injective) and Onto (Surjective) functions.',
-                        formulaSheetUrl: '',
-                        testUrl: '',
-                        pyqUrl: '',
-                        notesUrl: '',
-                        reels: [
-                            { title: 'Checking Equivalence Relation Fast', tag: 'Board Exam Trap', ig: 'https://www.instagram.com/flair_zone77777/', yt: 'https://www.youtube.com/@FLAIRZONE-k6g' }
-                        ]
-                    }
+                    { id: 'c12-ch1', number: 'Chapter 1', name: 'Relations and Functions', ncertCode: 'NCERT Class 12 Ch 1', desc: 'Reflexive, Symmetric, Transitive relations, Equivalence relations, One-one and Onto functions.', objectives: 'Prove equivalence relations and test for bijectivity of real-valued functions.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch2', number: 'Chapter 2', name: 'Inverse Trigonometric Functions', ncertCode: 'NCERT Class 12 Ch 2', desc: 'Definition, range, domain, principal value branches, and graphs of inverse trig functions.', objectives: 'Evaluate principal values and simplify inverse trigonometric expressions.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch3', number: 'Chapter 3', name: 'Matrices', ncertCode: 'NCERT Class 12 Ch 3', desc: 'Matrix operations, matrix multiplication, transpose, symmetric/skew-symmetric matrices.', objectives: 'Perform matrix multiplication and decompose matrices into symmetric and skew-symmetric parts.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch4', number: 'Chapter 4', name: 'Determinants', ncertCode: 'NCERT Class 12 Ch 4', desc: 'Determinant expansion, Minors, Cofactors, Adjoint, Inverse of a matrix, Matrix Method.', objectives: 'Find matrix inverses using A^-1 = (1/|A|)*adj(A) and solve systems of 3-variable linear equations.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch5', number: 'Chapter 5', name: 'Continuity and Differentiability', ncertCode: 'NCERT Class 12 Ch 5', desc: 'Continuity of functions, composite, implicit, exponential, logarithmic, parametric differentiation.', objectives: 'Test continuity at points, differentiate logarithmic/parametric functions, and calculate second derivatives.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch6', number: 'Chapter 6', name: 'Application of Derivatives', ncertCode: 'NCERT Class 12 Ch 6', desc: 'Rate of change, Increasing/Decreasing functions, Maxima and Minima (First/Second derivative tests).', objectives: 'Determine increasing/decreasing intervals and solve 3D mensuration maxima-minima word problems.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch7', number: 'Chapter 7', name: 'Integrals', ncertCode: 'NCERT Class 12 Ch 7', desc: 'Indefinite integrals, substitution, partial fractions, integration by parts, definite integral properties.', objectives: 'Master standard integration techniques and apply king/queen properties of definite integrals.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch8', number: 'Chapter 8', name: 'Application of Integrals', ncertCode: 'NCERT Class 12 Ch 8', desc: 'Area under simple curves (lines, circles, parabolas, ellipses in standard form).', objectives: 'Calculate bounded areas between lines, circles, parabolas, and ellipses using definite integration.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch9', number: 'Chapter 9', name: 'Differential Equations', ncertCode: 'NCERT Class 12 Ch 9', desc: 'Order and degree, variable separable method, homogeneous DEs, First-order Linear DEs.', objectives: 'Solve first-order linear differential equations using Integrating Factor IF = e^(integral P dx).', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch10', number: 'Chapter 10', name: 'Vector Algebra', ncertCode: 'NCERT Class 12 Ch 10', desc: 'Vectors, direction cosines/ratios, Dot Product, Cross Product, vector projection.', objectives: 'Calculate scalar projections, dot products for orthogonality, and cross products for areas.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch11', number: 'Chapter 11', name: 'Three Dimensional Geometry', ncertCode: 'NCERT Class 12 Ch 11', desc: 'Direction cosines/ratios of a line, vector/Cartesian line equations, shortest distance between skew lines.', objectives: 'Write vector equations of 3D lines and calculate shortest distance between skew lines.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch12', number: 'Chapter 12', name: 'Linear Programming', ncertCode: 'NCERT Class 12 Ch 12', desc: 'LPP formulation, feasible region, corner point method for optimization.', objectives: 'Formulate LPP word problems, shade bounded feasible regions, and optimize Z at corner points.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] },
+                    { id: 'c12-ch13', number: 'Chapter 13', name: 'Probability', ncertCode: 'NCERT Class 12 Ch 13', desc: 'Conditional probability, Multiplication theorem, Independent events, Bayes Theorem.', objectives: 'Apply Bayes Theorem P(Ei|A) to solve multi-bag and diagnostic probability word problems.', formulaSheetUrl: '', testUrl: '', pyqUrl: '', reels: [] }
                 ]
             }
         };
 
         let currentClass = '9';
+        let currentView = 'chapters'; // 'chapters' or 'syllabus'
 
         // INITIALIZE APP
         document.addEventListener('DOMContentLoaded', () => {
             selectClass('9');
             renderFeaturedReels();
 
-            // Mobile menu toggle
             document.getElementById('mobile-menu-btn').addEventListener('click', () => {
                 document.getElementById('mobile-menu').classList.toggle('hidden');
             });
         });
 
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // DUAL VIEW SWITCHER
+        function switchView(view) {
+            currentView = view;
+            const chaptersContainer = document.getElementById('view-chapters-container');
+            const syllabusContainer = document.getElementById('view-syllabus-container');
+            const chaptersBtn = document.getElementById('view-chapters-btn');
+            const syllabusBtn = document.getElementById('view-syllabus-btn');
+
+            if (view === 'chapters') {
+                chaptersContainer.classList.remove('hidden');
+                syllabusContainer.classList.add('hidden');
+                chaptersBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all bg-flair-blue text-white shadow-md flex items-center gap-2';
+                syllabusBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-2';
+            } else {
+                chaptersContainer.classList.add('hidden');
+                syllabusContainer.classList.remove('hidden');
+                syllabusBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all bg-flair-orange text-white shadow-md flex items-center gap-2';
+                chaptersBtn.className = 'px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all text-slate-400 hover:text-white hover:bg-slate-800 flex items-center gap-2';
+                renderSyllabus(mathDatabase[currentClass].syllabus);
+            }
+        }
+
         // SELECT ACTIVE CLASS
         function selectClass(classNum) {
             currentClass = classNum;
             
-            // Update Tab Styles
             document.querySelectorAll('.class-tab').forEach(tab => {
                 tab.className = 'class-tab px-5 py-2.5 rounded-xl font-heading font-semibold text-sm transition-all bg-slate-800 text-slate-400 hover:bg-slate-700 hover:text-white flex items-center gap-2 whitespace-nowrap';
             });
@@ -546,18 +683,19 @@
                 activeTab.className = 'class-tab px-5 py-2.5 rounded-xl font-heading font-semibold text-sm transition-all bg-flair-blue text-white shadow-lg shadow-blue-500/20 flex items-center gap-2 whitespace-nowrap';
             }
 
-            // Update Titles
-            const data = chaptersData[classNum];
+            const data = mathDatabase[classNum];
             document.getElementById('active-class-title').innerText = data.title;
             document.getElementById('active-class-subtitle').innerHTML = `Curriculum Focus: <span class="text-flair-orange font-semibold">${data.subtitle}</span>`;
 
-            // Render Chapters
             renderChapters(data.chapters);
+            if (currentView === 'syllabus') {
+                renderSyllabus(data.syllabus);
+            }
         }
 
         // RENDER CHAPTER CARDS
         function renderChapters(chapters) {
-            const grid = document.getElementById('chapters-grid');
+            const grid = document.getElementById('view-chapters-container');
             grid.innerHTML = '';
 
             if (chapters.length === 0) {
@@ -569,29 +707,30 @@
                 const card = document.createElement('div');
                 card.className = 'glass-panel rounded-2xl p-6 border border-slate-700/60 shadow-xl transition-all duration-300 hover:border-slate-600';
                 
-                // Reels HTML
                 let reelsHTML = '';
-                ch.reels.forEach(reel => {
-                    reelsHTML += `
-                        <button onclick="openReelModal('${reel.title}', '${reel.tag}', '${reel.ig}', '${reel.yt}')" class="text-left bg-slate-900/80 hover:bg-slate-800 p-3 rounded-xl border border-slate-800 transition-all flex items-center justify-between group">
-                            <div class="flex items-center gap-2.5">
-                                <div class="w-7 h-7 rounded-lg bg-pink-500/10 text-pink-500 flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-play"></i>
+                if (ch.reels && ch.reels.length > 0) {
+                    ch.reels.forEach(reel => {
+                        reelsHTML += `
+                            <button onclick="openReelModal('${reel.title}', '${reel.tag}', '${reel.ig}', '${reel.yt}')" class="w-full text-left bg-slate-900/80 hover:bg-slate-800 p-3 rounded-xl border border-slate-800 transition-all flex items-center justify-between group">
+                                <div class="flex items-center gap-2.5">
+                                    <div class="w-7 h-7 rounded-lg bg-pink-500/10 text-pink-500 flex items-center justify-center text-xs group-hover:scale-110 transition-transform">
+                                        <i class="fas fa-play"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-semibold text-slate-200 group-hover:text-flair-blue transition-colors">${reel.title}</div>
+                                        <div class="text-[10px] text-slate-400">${reel.tag}</div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div class="text-xs font-semibold text-slate-200 group-hover:text-flair-blue transition-colors">${reel.title}</div>
-                                    <div class="text-[10px] text-slate-400">${reel.tag}</div>
-                                </div>
-                            </div>
-                            <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
-                        </button>
-                    `;
-                });
+                                <i class="fas fa-chevron-right text-xs text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                        `;
+                    });
+                } else {
+                    reelsHTML = `<div class="text-xs text-slate-400 italic p-2">Concept reels for this chapter in production.</div>`;
+                }
 
                 card.innerHTML = `
                     <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-6">
-                        
-                        <!-- LEFT: CHAPTER DETAILS -->
                         <div class="space-y-3 lg:max-w-xl">
                             <div class="flex items-center gap-2.5">
                                 <span class="bg-flair-blue/10 border border-flair-blue/20 text-flair-blue text-xs font-bold px-2.5 py-0.5 rounded-md">${ch.number}</span>
@@ -601,27 +740,25 @@
                             <h3 class="font-heading font-bold text-xl text-white">${ch.name}</h3>
                             <p class="text-sm text-slate-300 leading-relaxed">${ch.desc}</p>
 
-                            <!-- DOWNLOADABLE RESOURCE BUTTONS -->
                             <div class="pt-2 flex flex-wrap gap-2.5">
-                                <button onclick="handleDownload('${ch.formulaSheetUrl}', 'Formula Sheet', '${ch.name}')" class="px-3.5 py-2 rounded-xl bg-flair-blue/10 hover:bg-flair-blue text-flair-blue hover:text-white border border-flair-blue/30 font-semibold text-xs flex items-center gap-1.5 transition-all">
+                                <button onclick="handleDownload('${ch.formulaSheetUrl}', 'Formula Sheet', '${ch.name}', '${ch.objectives}')" class="px-3.5 py-2 rounded-xl bg-flair-blue/10 hover:bg-flair-blue text-flair-blue hover:text-white border border-flair-blue/30 font-semibold text-xs flex items-center gap-1.5 transition-all">
                                     <i class="fas fa-file-pdf"></i> Formula Sheet PDF
                                 </button>
                                 
-                                <button onclick="handleDownload('${ch.testUrl}', 'Chapter Practice Test', '${ch.name}')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 font-semibold text-xs flex items-center gap-1.5 transition-all">
+                                <button onclick="handleDownload('${ch.testUrl}', 'Chapter Practice Test', '${ch.name}', '${ch.objectives}')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 font-semibold text-xs flex items-center gap-1.5 transition-all">
                                     <i class="fas fa-pen-nib"></i> Chapter Test
                                 </button>
 
-                                <button onclick="handleDownload('${ch.pyqUrl}', 'CBSE PYQs', '${ch.name}')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 font-semibold text-xs flex items-center gap-1.5 transition-all">
+                                <button onclick="handleDownload('${ch.pyqUrl}', 'CBSE PYQs', '${ch.name}', '${ch.objectives}')" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700 font-semibold text-xs flex items-center gap-1.5 transition-all">
                                     <i class="fas fa-history"></i> CBSE PYQs
                                 </button>
                             </div>
                         </div>
 
-                        <!-- RIGHT: CONCEPT REELS GRID FOR THIS CHAPTER -->
                         <div class="lg:w-80 bg-slate-950/60 p-4 rounded-xl border border-slate-800/80">
                             <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
                                 <span><i class="fas fa-video text-flair-orange mr-1.5"></i> Concept Reels</span>
-                                <span class="text-[10px] text-slate-400">${ch.reels.length} Videos</span>
+                                <span class="text-[10px] text-slate-400">${ch.reels ? ch.reels.length : 0} Videos</span>
                             </div>
                             <div class="space-y-2">
                                 ${reelsHTML}
@@ -634,7 +771,31 @@
             });
         }
 
-        // RENDER FEATURED REELS AT BOTTOM
+        // RENDER SYLLABUS OVERVIEW (VIEW 2)
+        function renderSyllabus(syllabusUnits) {
+            const container = document.getElementById('view-syllabus-container');
+            container.innerHTML = '';
+
+            syllabusUnits.forEach(item => {
+                const box = document.createElement('div');
+                box.className = 'glass-panel p-5 rounded-xl border border-slate-700/60 flex flex-col md:flex-row md:items-center justify-between gap-4';
+                
+                let chaptersList = item.chapters.map(c => `<span class="bg-slate-900 text-slate-300 px-3 py-1 rounded-lg border border-slate-800 text-xs font-medium">${c}</span>`).join(' ');
+
+                box.innerHTML = `
+                    <div class="space-y-2">
+                        <div class="font-heading font-bold text-lg text-white">${item.unit}</div>
+                        <div class="flex flex-wrap gap-2 pt-1">${chaptersList}</div>
+                    </div>
+                    <div class="bg-flair-orange/10 border border-flair-orange/30 text-flair-orange text-sm font-bold px-4 py-2 rounded-xl text-center whitespace-nowrap">
+                        Weightage: ${item.weightage}
+                    </div>
+                `;
+                container.appendChild(box);
+            });
+        }
+
+        // RENDER FEATURED REELS
         function renderFeaturedReels() {
             const container = document.getElementById('featured-reels-container');
             container.innerHTML = '';
@@ -669,13 +830,14 @@
             });
         }
 
-        // HANDLE DOWNLOAD / IN-PRODUCTION MODAL
-        function handleDownload(url, type, chapterName) {
+        // HANDLE DOWNLOAD MODAL (OPTION 2-C)
+        function handleDownload(url, type, chapterName, objectives) {
             if (url && url.trim() !== '') {
                 window.open(url, '_blank');
             } else {
                 document.getElementById('modal-title').innerText = `${type} In Production`;
-                document.getElementById('modal-desc').innerText = `The ${type} for ${chapterName} is being formatted with our 10% opacity centered watermark standard.`;
+                document.getElementById('modal-chapter-tag').innerText = `Class ${currentClass} Mathematics | ${chapterName}`;
+                document.getElementById('modal-objectives').innerText = objectives || 'NCERT concept proof verification and exam question layout.';
                 document.getElementById('modal-backdrop').classList.remove('hidden');
             }
         }
@@ -700,7 +862,7 @@
         // SEARCH FILTER
         function filterChapters() {
             const query = document.getElementById('search-input').value.toLowerCase();
-            const allChapters = chaptersData[currentClass].chapters;
+            const allChapters = mathDatabase[currentClass].chapters;
             
             const filtered = allChapters.filter(ch => 
                 ch.name.toLowerCase().includes(query) || 
